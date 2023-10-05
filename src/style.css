@@ -1,0 +1,416 @@
+/*************************************************************** SCROLL BAR*******************************************/
+
+::-webkit-scrollbar {
+    width: .6em;
+  }
+  
+  
+  ::-webkit-scrollbar-track {
+    /* background-color: var(--color-bright); */
+    border-radius: 10px;
+    margin-block: 10px;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(238deg, pink, hotpink); ;
+    /* border: 1px solid; */
+    /* box-shadow: 0px 0px 15px 0px var(--main-color);*/
+  
+  
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--p-color);
+  }
+  
+  
+  /************ for firefox ***************/
+  
+  
+  @supports (scrollbar-color: pink blue) {
+    * {
+      scrollbar-color: var(--p-color) var(--color-bright);
+      scrollbar-width: thin;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /********************************************************** END SCROLL BAR **********************************************/
+  
+  /*start of variables*/
+  :root {
+    --main-color:#b4b4b4;
+    --second-color: #380b16;
+    --thrid-color: #c00010e6;
+    --four-color: #682f5abd;
+    --p-color: #ff7f506e;
+    --color-bright: #6a192d;
+  }
+  
+  /*end of variables*/
+  
+  /* START OF GLOBAL VALUES*/
+  
+  * {
+    --webkit-box-sizing: border-box;
+    --moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: .5s;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body{
+    height: 1000vh;
+  }
+  
+  *::selection {
+    background-color: burlywood;
+    color: crimson;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  
+  @media (min-width: 1020px) {
+    .container {
+      width: 970px;
+    }
+  }
+  
+  @media (min-width: 1250px) {
+    .container {
+      width: 1188px;
+    }
+  }
+  .nav_bar{
+    width: 90%;
+    position: fixed;
+    top: 0;
+ left: 50%;
+ transform: translateX(-50%);
+  }
+  .nav_bar .container > img {
+    width: 150px;
+  }
+
+
+  .nav_bar .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+/* background: linear-gradient(to top left, #28b487, #7dd56f); */
+  }
+
+
+  .nav_bar .container .bars {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+   
+  }
+
+  /* .login_from .container .inputs {
+   display: flex  ;
+   flex-wrap: wrap;
+   column-gap: .5rem;
+   justify-content: flex-end;
+  }  */
+  .login_from .container .inputs input{
+    border: var(--main-color) 1px solid;
+    border-radius:.2rem;
+    padding: 7px;
+  } 
+  /* .login_from .container .inputs input:focus{
+    background-color: red;
+  }  */
+  .login_from .container .inputs button{
+    cursor: pointer;
+    border: none;
+    border-radius:.2rem;
+    padding: 7px;
+  
+  } 
+
+
+  .nav_bar .container .bars > div {
+    position: relative;
+    width: 1%;
+    height: 0.1px;
+    background-color:#b4b4b4;
+    display: flex;
+    align-items: center;
+   animation: bars .5s ease-in-out forwards;
+  }
+  @keyframes bars {
+   0%{width: 1%;}
+    100% {width: 49%;} 
+  }
+
+  .nav_bar .container .bars .middle-dot{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px #b4b4b4 solid;
+  }
+
+  .nav_bar .container .bars .middle-dot::after {
+    content: "";
+position: absolute;
+width: 100%;
+height: 100%;
+transform: scale(0);
+background-color: #b4b4b4;
+border-radius: 50%;
+animation: ping ease-in-out .4s .4s forwards;
+  }
+  @keyframes ping {
+    0% {
+      transform: scale(0);
+    }
+    20%{
+      transform: scale(.3);
+    }
+    30%{
+      transform: scale(.6);
+      opacity: .9;
+    }
+    40%{
+      transform: scale(.9);
+      opacity: .8;
+    }
+    50%{
+      transform: scale(1.2);
+      opacity: .7;
+    }
+    60%{
+      transform: scale(1.5);
+      opacity: .6;
+    }
+    70%{
+      transform: scale(1.8);
+      opacity: .5;
+    }
+    80%{
+      transform: scale(2);
+      opacity: .4;
+    }
+    90%{
+      transform: scale(2.3);
+      opacity: .3;
+    }
+    100%{
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .nav_bar .container .bars .bar-left {
+    justify-content: flex-end;
+  }
+  .nav_bar .container .bars .bar-right {
+    justify-content: flex-start;
+  }
+  .nav_bar .container .bars > div span{
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #b4b4b4;
+  }
+
+
+
+  .nav_bar .container .bars > .bar-right::after{
+position: absolute;
+content: "";
+right: 0;
+height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #b4b4b4;
+  }
+
+
+  .nav_bar .container .bars > .bar-left::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background-color: #b4b4b4;
+      }
+    
+      .nav_bar .container .bars > .bar-right::before{
+        position: absolute;
+        content: "";
+        left: 9px;
+        height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background-color: #b4b4b4;
+          }
+        
+          .nav_bar .container .bars > .bar-left::before{
+            position: absolute;
+            content: "";
+           right: 9px;
+            height: 5px;
+                width: 5px;
+                border-radius: 50%;
+                background-color: #b4b4b4;
+              }
+            
+              
+
+              @media (max-width: 768px) {
+                .nav_bar .container .bars > div {
+                  width: 47%;
+                }
+                .login_from .container .inputs {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 5px;
+                 
+                }
+                .login_from .container .inputs  button{
+                  width: 50px;
+                  align-self: flex-end;
+                }
+              }
+
+              h1{
+                background:linear-gradient( to right, purple , violet , rgb(244,143,177) ,purple );
+                background-size: 200%;
+                margin-top: 500px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width: 150px;
+                animation: background-pan 3s linear infinite;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                white-space: nowrap;
+              }
+
+
+              @keyframes background-pan {
+                from {
+                  background-position: 0% center;
+                }
+
+                to {
+                  background-position: -200% center;
+                }
+              }
+
+
+
+
+
+              .carousel {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+              }
+              
+              .carousel > ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+              }
+              
+              .slide {
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: 200ms opacity ease-in-out;
+              }
+              
+              .slide > img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+              }
+
+              .slide[data-active]{
+                opacity: 1;
+              }
+
+              .carousel-button{
+                position: absolute;
+                background: none;
+                border: none;
+                font-size:4rem ;
+                top: 50%;
+                z-index: 2;
+                transform: translateY(-50%);
+                color: rgba(255, 255, 255, .5);
+                cursor: pointer;
+                border-radius: .25rem;
+                padding: 0 .5rem;
+                background-color: rgba(0, 0, 0, .1);
+              }
+
+              .carousel-button:hover,
+              .carousel-button:focus{
+                color: white;
+                border-color: rgba(0, 0, 0, .2);
+              }
+
+              .carousel-button.prev{
+                left: 1rem;
+              }
+
+              .carousel-button.next{
+                right: 1rem;
+              }
